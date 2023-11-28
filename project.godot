@@ -24,6 +24,10 @@ config/name="Open Cards"
 run/main_scene="res://entities/main/main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+DatabaseManager="*res://entities/database/database_manager.gd"
+
 [display]
 
 window/size/width=720
