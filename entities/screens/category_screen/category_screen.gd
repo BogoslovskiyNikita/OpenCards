@@ -1,4 +1,6 @@
 extends Control
 
 func setup(category_id: int):
-	print(DatabaseManager.get_category(category_id))
+	var category = DatabaseManager.get_category(category_id)
+	$"%CategoryInfo".text = "Category: %s, %d words" % [category.category_name, DatabaseManager.get_words_count(category_id)]
+

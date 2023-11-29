@@ -7,8 +7,8 @@ var _db: _SQLite
 
 signal category_added
 
-class Category:
-	var category_name: String
+class Category: ## TODO: Come up with a better name
+	var category_name: String ##TODO: replace 'category_name' with 'name'
 	var id: int
 	
 	func _init(_id: int, _category_name: String):
@@ -45,7 +45,14 @@ func get_all_categories():
 	return result
 
 
-func get_category(id: int):
+func get_category(id: int) -> Category:
 	_query("SELECT * FROM categories WHERE ID = %d" % id)
 	var result = _db.query_result[0]
 	return Category.new(result.id, result.name)
+
+
+func get_words_count(category_id: int) -> int:
+	## TODO: Find better name for category column
+	var query_string = "SELECT COUNT(*) as category_count FROM words WHERE category = %d" % category_id
+	_query(query_string)
+	return _db.query_result[0].category_count
