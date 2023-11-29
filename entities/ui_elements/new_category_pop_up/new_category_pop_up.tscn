@@ -13,6 +13,7 @@ margin_right = 460.0
 margin_bottom = 123.0
 
 [node name="AddNewCategoryLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
 margin_right = 460.0
 margin_bottom = 14.0
 text = "Add new category"

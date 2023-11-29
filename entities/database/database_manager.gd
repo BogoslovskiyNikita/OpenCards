@@ -22,7 +22,6 @@ class Category:
 func _ready():
 	_db = _SQLite.new()
 	_db.path = _DatabasePath
-	get_all_categories()
 
 
 ## TODO: add possibility to instantly return query result
@@ -36,6 +35,7 @@ func add_category(category_name: String):
 	_query("INSERT INTO categories (name) VALUES ('%s')" % [category_name])
 	emit_signal("category_added")
 
+
 func get_all_categories():
 	_query("SELECT * FROM CATEGORIES")
 	var categories_from_db = _db.query_result
@@ -43,3 +43,9 @@ func get_all_categories():
 	for category in categories_from_db: ## TODO: refactor
 		result.append(Category.new(category.id, category.name))
 	return result
+
+
+func get_category(id: int):
+	_query("SELECT * FROM categories WHERE ID = %d" % id)
+	var result = _db.query_result[0]
+	return Category.new(result.id, result.name)

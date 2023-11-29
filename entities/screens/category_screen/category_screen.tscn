@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://entities/screens/category_screen/category_screen.gd" type="Script" id=1]
+[ext_resource path="res://entities/ui_elements/floating_button/floating_button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://themes/main.tres" type="Theme" id=3]
+[ext_resource path="res://entities/ui_elements/scrolling_list/scrolling_list.tscn" type="PackedScene" id=4]
+
+[node name="CategoryScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 1 )
+
+[node name="NewCategoryButton" parent="." instance=ExtResource( 2 )]
+
+[node name="ScrollingList" parent="." instance=ExtResource( 4 )]
+
+[node name="CategoryName" type="Label" parent="."]
+margin_left = 198.0
+margin_right = 484.0
+margin_bottom = 87.0
+text = "Category Name
+"
