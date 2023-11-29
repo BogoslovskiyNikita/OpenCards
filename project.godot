@@ -22,7 +22,7 @@ _global_script_class_icons={
 
 config/name="Open Cards"
 run/main_scene="res://entities/main/main.tscn"
-config/icon="res://icon.png"
+config/icon="res://cards_icon.png"
 
 [autoload]
 
