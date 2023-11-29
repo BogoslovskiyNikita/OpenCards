@@ -5,6 +5,8 @@ const _DatabasePath = "res://entities/database/database.db"
 
 var _db: _SQLite
 
+signal category_added
+
 class Category:
 	var category_name: String
 	var id: int
@@ -32,7 +34,7 @@ func _query(query_string: String):
 
 func add_category(category_name: String):
 	_query("INSERT INTO categories (name) VALUES ('%s')" % [category_name])
-
+	emit_signal("category_added")
 
 func get_all_categories():
 	_query("SELECT * FROM CATEGORIES")
