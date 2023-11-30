@@ -56,3 +56,7 @@ func get_words_count(category_id: int) -> int:
 	var query_string = "SELECT COUNT(*) as category_count FROM words WHERE category = %d" % category_id
 	_query(query_string)
 	return _db.query_result[0].category_count
+
+
+func add_word(word: String, translastion: String, category: int, description: String = ""):
+	_query("INSERT INTO words (word, translation, description, category) VALUES ('%s', '%s', '%s', %d)" % [word, translastion, description, category])
