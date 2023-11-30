@@ -12,5 +12,6 @@ func set_label_text(label_text: String):
 func set_id(_id: int):
 	id = _id
 
+
 func _on_ListItem_pressed():
 	emit_signal("selected", id)
