@@ -14,9 +14,9 @@ rect_min_size = Vector2( 0, 1200 )
 theme = ExtResource( 3 )
 script = ExtResource( 1 )
 
-[node name="NewWordButton" parent="." instance=ExtResource( 2 )]
-
 [node name="ScrollingList" parent="." instance=ExtResource( 4 )]
+
+[node name="NewWordButton" parent="." instance=ExtResource( 2 )]
 
 [node name="CategoryInfo" type="Label" parent="."]
 unique_name_in_owner = true
