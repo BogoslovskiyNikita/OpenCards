@@ -6,6 +6,7 @@ const _DatabasePath = "res://entities/database/database.db"
 var _db: _SQLite
 
 signal category_added
+signal word_delted
 
 class Category: ## TODO: Come up with a better name
 	var category_name: String ##TODO: replace 'category_name' with 'name'
@@ -86,3 +87,8 @@ func get_words(category_id: int) -> Array:
 		var word_model = WordModel.new(record.id, record.word, record.translation, record.description)
 		result.append(word_model)
 	return result
+
+
+func delete_word(word_id: int):
+	_query("DELETE FROM words WHERE id = %d" % word_id)
+	emit_signal("word_delted")
