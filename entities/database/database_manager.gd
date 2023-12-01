@@ -1,7 +1,8 @@
 extends Node
 
 const _SQLite = preload("res://addons/godot-sqlite/bin/gdsqlite.gdns")
-const _DatabasePath = "res://entities/database/database.db"
+const _OriginalDatabasePath = "res://entities/database/database.db"
+const _DatabasePath = "user://data/database.db"
 
 var _db: _SQLite
 
@@ -37,8 +38,18 @@ class WordModel:
 
 
 func _ready():
+	_copy_db_to_user_folder()
 	_db = _SQLite.new()
 	_db.path = _DatabasePath
+
+
+## TODO: Add checking if db exists and structure is the same
+## TODO: Refactor
+func _copy_db_to_user_folder():
+	var data_folder_path = "user://data"
+	if not Directory.new().dir_exists(data_folder_path):
+		Directory.new().make_dir(data_folder_path)
+	Directory.new().copy(_OriginalDatabasePath, _DatabasePath)
 
 
 ## TODO: add possibility to instantly return query result
