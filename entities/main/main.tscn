@@ -1,35 +1,49 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://entities/ui_elements/new_category_pop_up/new_category_pop_up.tscn" type="PackedScene" id=1]
-[ext_resource path="res://entities/main/main.gd" type="Script" id=2]
+[ext_resource path="res://entities/screens/сategories_сatalogue/сategories_сatalogue.tscn" type="PackedScene" id=1]
 [ext_resource path="res://themes/main.tres" type="Theme" id=3]
-[ext_resource path="res://entities/ui_elements/scrolling_list/scrolling_list.tscn" type="PackedScene" id=4]
-[ext_resource path="res://entities/ui_elements/floating_button/floating_button.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 3 )
-script = ExtResource( 2 )
 
-[node name="CategoriesContainer" parent="." instance=ExtResource( 4 )]
+[node name="MainVBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 720.0
+margin_bottom = 1280.0
 
-[node name="NewCategoryButton" parent="." instance=ExtResource( 5 )]
+[node name="CategoriesСatalogue" parent="MainVBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 720.0
+margin_bottom = 1200.0
 
-[node name="NewCategoryPopUp" parent="." instance=ExtResource( 1 )]
-unique_name_in_owner = true
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -230.0
-margin_top = -78.5
-margin_right = 230.0
-margin_bottom = 78.5
+[node name="NavigationBar" type="HBoxContainer" parent="MainVBoxContainer"]
+margin_top = 1204.0
+margin_right = 720.0
+margin_bottom = 1284.0
+rect_min_size = Vector2( 720, 80 )
+size_flags_horizontal = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="LibraryButton" type="Button" parent="MainVBoxContainer/NavigationBar"]
+margin_right = 237.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 80 )
+size_flags_horizontal = 3
+text = "Libarary"
 
-[connection signal="pressed" from="NewCategoryButton" to="." method="_on_NewCategoryButton_pressed"]
+[node name="LearnButton" type="Button" parent="MainVBoxContainer/NavigationBar"]
+margin_left = 241.0
+margin_right = 478.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 80 )
+size_flags_horizontal = 3
+text = "Learn"
+
+[node name="AboutButton" type="Button" parent="MainVBoxContainer/NavigationBar"]
+margin_left = 482.0
+margin_right = 720.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 80 )
+size_flags_horizontal = 3
+text = "About"

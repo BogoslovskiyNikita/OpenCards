@@ -5,8 +5,10 @@ const ListItemScene = preload("res://entities/ui_elements/list_item/list_item.ts
 func _ready():
 	DatabaseManager.connect("category_added", self, "refresh_categories_list")
 	refresh_categories_list()
+	ScreenManager.current_screen = self ## TODO: replace spaghetti code
+	ScreenManager.main_vbox_container = get_parent()
 	
-
+	
 func refresh_categories_list():
 	var list_container = $"%CategoriesContainer".get_node("VBoxContainer")
 	
