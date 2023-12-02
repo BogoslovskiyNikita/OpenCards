@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://entities/ui_elements/categories_list_item/categories_list_item.gd" type="Script" id=1]
+[ext_resource path="res://icons/trashbin.png" type="Texture" id=2]
+
+[node name="CategoriesListItem" type="HBoxContainer"]
+margin_right = 315.0
+margin_bottom = 20.0
+script = ExtResource( 1 )
+
+[node name="WordButton" type="Button" parent="."]
+unique_name_in_owner = true
+margin_right = 300.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 300, 0 )
+text = "Category name"
+
+[node name="DeleteButton" type="TextureButton" parent="."]
+margin_left = 304.0
+margin_right = 354.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 2 )
+expand = true
+
+[connection signal="pressed" from="WordButton" to="." method="_on_WordButton_pressed"]
+[connection signal="pressed" from="DeleteButton" to="." method="_on_DeleteButton_pressed"]

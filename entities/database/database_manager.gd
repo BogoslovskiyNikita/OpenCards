@@ -5,8 +5,10 @@ const _OriginalDatabasePath = "res://entities/database/database.db"
 const _DatabasePath = "user://data/database.db"
 
 var _db: _SQLite
+var _copy_db = false # DEBUG ONLY
 
 signal category_added
+signal category_deleted
 signal word_delted
 
 class Category: ## TODO: Come up with a better name
@@ -49,7 +51,8 @@ func _copy_db_to_user_folder():
 	var data_folder_path = "user://data"
 	if not Directory.new().dir_exists(data_folder_path):
 		Directory.new().make_dir(data_folder_path)
-	Directory.new().copy(_OriginalDatabasePath, _DatabasePath)
+	if _copy_db:
+		Directory.new().copy(_OriginalDatabasePath, _DatabasePath)
 
 
 ## TODO: add possibility to instantly return query result
@@ -103,3 +106,11 @@ func get_words(category_id: int) -> Array:
 func delete_word(word_id: int):
 	_query("DELETE FROM words WHERE id = %d" % word_id)
 	emit_signal("word_delted")
+
+
+func delete_category(category_id: int):
+	var words_in_category = get_words(category_id)
+	for word_model in words_in_category:
+		delete_word(word_model.id)
+	_query("DELETE FROM categories WHERE id = %d" % category_id)
+	emit_signal("category_deleted")
