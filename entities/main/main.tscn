@@ -33,7 +33,7 @@ margin_right = 237.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 0, 80 )
 size_flags_horizontal = 3
-text = "Libarary"
+text = "Library"
 
 [node name="LearnButton" type="Button" parent="MainVBoxContainer/NavigationBar"]
 unique_name_in_owner = true
