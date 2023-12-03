@@ -54,3 +54,4 @@ size_flags_horizontal = 3
 text = "About"
 
 [connection signal="pressed" from="MainVBoxContainer/NavigationBar/LibraryButton" to="MainVBoxContainer/NavigationBar" method="_on_LibraryButton_pressed"]
+[connection signal="pressed" from="MainVBoxContainer/NavigationBar/LearnButton" to="MainVBoxContainer/NavigationBar" method="_on_LearnButton_pressed"]
