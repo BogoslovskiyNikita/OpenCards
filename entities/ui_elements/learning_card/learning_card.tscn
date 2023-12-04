@@ -1,7 +1,47 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://entities/ui_elements/learning_card/learning_card.gd" type="Script" id=1]
 [ext_resource path="res://themes/main.tres" type="Theme" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "flip"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Panel/FrontVBoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Panel/BackVBoxContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [node name="LearningCard" type="Control"]
 margin_right = 720.0
@@ -14,10 +54,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -145.5
-margin_top = -212.5
-margin_right = 145.5
-margin_bottom = 212.5
+margin_left = -191.5
+margin_top = -279.5
+margin_right = 198.5
+margin_bottom = 280.5
+rect_pivot_offset = Vector2( 195, 280 )
 
 [node name="FrontVBoxContainer" type="VBoxContainer" parent="Panel"]
 anchor_left = 0.5
@@ -55,24 +96,33 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -44.0
+margin_left = -165.0
 margin_top = -67.0
-margin_right = 44.0
+margin_right = 165.0
 margin_bottom = 67.0
 
 [node name="WordLabel" type="Label" parent="Panel/BackVBoxContainer"]
-margin_right = 88.0
+margin_right = 330.0
 margin_bottom = 42.0
-text = "Word"
-
-[node name="DescriptionLabel" type="Label" parent="Panel/BackVBoxContainer"]
-margin_top = 46.0
-margin_right = 88.0
-margin_bottom = 88.0
-text = "Word"
+text = "WordBack"
+align = 1
 
 [node name="TranslationLabel" type="Label" parent="Panel/BackVBoxContainer"]
+margin_top = 46.0
+margin_right = 330.0
+margin_bottom = 88.0
+text = "TranslationBack"
+align = 1
+
+[node name="DescriptionLabel" type="Label" parent="Panel/BackVBoxContainer"]
 margin_top = 92.0
-margin_right = 88.0
+margin_right = 330.0
 margin_bottom = 134.0
-text = "Word"
+text = "DecriptionBack"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+anims/flip = SubResource( 1 )
+
+[connection signal="gui_input" from="Panel" to="." method="_on_Panel_gui_input"]
