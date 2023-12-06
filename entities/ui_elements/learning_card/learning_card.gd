@@ -7,9 +7,6 @@ var threshold: int
 
 var flipped = false
 
-func _ready():
-	pass
-
 
 func _on_Panel_gui_input(event: InputEvent):
 	if event is InputEventMouseButton and event.is_pressed():
@@ -22,3 +19,22 @@ func flip():
 	
 	$"%AnimationPlayer".play("flip")
 	flipped = true
+
+
+func _on_YesButton_pressed():
+	play_dissaperance_animation()
+
+
+func _on_NoButton_pressed():
+	play_dissaperance_animation()
+
+
+func play_dissaperance_animation():
+	var animation_duration = 0.4
+	$"%Tween".interpolate_property($"%Panel", "rect_scale", rect_scale, rect_scale * 1.5, animation_duration)
+	$"%Tween".interpolate_property($"%Panel", "modulate", modulate, Color.transparent, animation_duration)
+	$"%Tween".start()
+
+
+func _on_Tween_tween_all_completed():
+	queue_free()
