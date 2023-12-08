@@ -29,6 +29,7 @@ config/icon="res://cards_icon.png"
 DatabaseManager="*res://entities/database/database_manager.gd"
 Utils="*res://entities/utils/utils.gd"
 ScreenManager="*res://entities/screen_manager.gd"
+LearningManager="*res://entities/learning_manager.gd"
 
 [display]
 
