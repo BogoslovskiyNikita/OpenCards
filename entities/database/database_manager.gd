@@ -125,12 +125,14 @@ func update_correct_answers_count(word_id: int):
 	pass
 
 
-func get_random_words(amount: int, category = null):
-	if category:
-		pass
+func get_random_words(amount: int, category_id = null):
+	if category_id:
+		_query("SELECT * FROM words WHERE category = %d ORDER BY RANDOM() LIMIT %d" % [category_id, amount])
+	else:
+		_query("SELECT * FROM words ORDER BY RANDOM() LIMIT %d" % amount)
 	
-	_query("SELECT * FROM words ORDER BY RANDOM() LIMIT %d" % amount)
 	var result = Array()
+	
 	for record in _db.query_result:
 		var word_model = WordModel.new(record.id, record.word, record.translation, record.description)
 		result.append(word_model)
