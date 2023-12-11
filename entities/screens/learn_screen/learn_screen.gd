@@ -15,6 +15,7 @@ func _set_up_categories():
 		$"%CategoriesOptionButton".set_item_metadata($"%CategoriesOptionButton".get_item_id(index), items_metadata[index])
 	_on_CategoriesOptionButton_item_selected(0)
 
+
 func _on_CategoriesOptionButton_item_selected(index):
 	var item_db_id = $"%CategoriesOptionButton".get_selected_metadata()
 	$"%WordsAmountSpinBox".allow_greater = true
@@ -24,6 +25,7 @@ func _on_CategoriesOptionButton_item_selected(index):
 		$"%WordsAmountSpinBox".value = DatabaseManager.get_words_count(item_db_id)
 	$"%WordsAmountSpinBox".allow_greater = false
 	$"%WordsAmountSpinBox".max_value = $"%WordsAmountSpinBox".value
+
 
 ## TODO: add toast when $"%WordsAmountSpinBox" is 0
 func _start_learning():

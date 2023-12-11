@@ -94,6 +94,7 @@ func get_all_words_count() -> int:
 	_query(query_string)
 	return _db.query_result[0].category_count
 
+
 func add_word(word: String, translastion: String, category: int, description: String = ""):
 	_query("INSERT INTO words (word, translation, description, category) VALUES ('%s', '%s', '%s', %d)" % [word, translastion, description, category])
 
@@ -107,6 +108,19 @@ func get_words(category_id: int) -> Array:
 		result.append(word_model)
 	return result
 
+
+func get_word(word_id: int) -> WordModel:
+	_query("SELECT * FROM words WHERE id = %d" % word_id)
+	var query_result = _db.query_result[0]
+	var word_model = WordModel.new(
+		query_result.id,
+		query_result.word,
+		query_result.translation,
+		query_result.description
+	)
+	return word_model
+	
+	
 
 func delete_word(word_id: int):
 	_query("DELETE FROM words WHERE id = %d" % word_id)

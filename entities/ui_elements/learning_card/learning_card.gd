@@ -8,6 +8,14 @@ var threshold: int
 var flipped = false
 
 
+func init(_word_id):
+	var word_model = DatabaseManager.get_word(_word_id)
+	$"%WordLabel".text = word_model.word
+	$"%BackWordLabel".text = word_model.word
+	$"%BackTranslationLabel".text = word_model.translation
+	$"%BackDescriptionLabel".text = word_model.description
+
+
 func _on_Panel_gui_input(event: InputEvent):
 	if event is InputEventMouseButton and event.is_pressed():
 		flip()

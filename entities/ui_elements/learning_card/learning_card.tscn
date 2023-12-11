@@ -82,12 +82,14 @@ margin_right = 121.0
 margin_bottom = 67.0
 
 [node name="WordLabel" type="Label" parent="Panel/FrontVBoxContainer"]
+unique_name_in_owner = true
 margin_right = 242.0
 margin_bottom = 42.0
 text = "Word"
 align = 1
 
 [node name="TranslationLabel" type="Label" parent="Panel/FrontVBoxContainer"]
+visible = false
 margin_top = 46.0
 margin_right = 242.0
 margin_bottom = 88.0
@@ -95,9 +97,10 @@ text = "Translation"
 align = 1
 
 [node name="DescriptionLabel" type="Label" parent="Panel/FrontVBoxContainer"]
-margin_top = 92.0
+visible = false
+margin_top = 46.0
 margin_right = 242.0
-margin_bottom = 134.0
+margin_bottom = 88.0
 text = "Description"
 align = 1
 
@@ -112,20 +115,23 @@ margin_top = -94.0
 margin_right = 194.0
 margin_bottom = 94.0
 
-[node name="WordLabel" type="Label" parent="Panel/BackVBoxContainer"]
+[node name="BackWordLabel" type="Label" parent="Panel/BackVBoxContainer"]
+unique_name_in_owner = true
 margin_right = 388.0
 margin_bottom = 42.0
 text = "WordBack"
 align = 1
 
-[node name="TranslationLabel" type="Label" parent="Panel/BackVBoxContainer"]
+[node name="BackTranslationLabel" type="Label" parent="Panel/BackVBoxContainer"]
+unique_name_in_owner = true
 margin_top = 46.0
 margin_right = 388.0
 margin_bottom = 88.0
 text = "TranslationBack"
 align = 1
 
-[node name="DescriptionLabel" type="Label" parent="Panel/BackVBoxContainer"]
+[node name="BackDescriptionLabel" type="Label" parent="Panel/BackVBoxContainer"]
+unique_name_in_owner = true
 margin_top = 92.0
 margin_right = 388.0
 margin_bottom = 134.0
