@@ -30,7 +30,14 @@ Project is created with [Godot Engine](https://godotengine.org/) [v 3.5.2]
 
 ### General features
 
-:x: "About screen"\
+:x: "About" screen\
 :x: Notifications (can be implemented with [this](https://github.com/DrMoriarty/godot-local-notification) plugin)\
 :x: Selecting languages user wants to learn\
 :x: Default categories and words
+
+# Roadmap
+
+:x: MVP\
+:x: Release on Play Market\
+:x: Add "Buy me a coffe" button\
+:x: ~~Chill on islands~~
