@@ -49,7 +49,7 @@ Feel free to contribute to this project or make your own fork!
 
 ### Settings screen
 :x: Selecting language of app interface\
-:x: Selecting languages user wants to learn (for autotranslation)\
+:x: Selecting languages user wants to learn (for autotranslation)
 
 ### General features
 
