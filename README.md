@@ -47,12 +47,16 @@ Feel free to contribute to this project or make your own fork!
 :x: Learning card flow. If users guessed the card, write this fact to DB\
 :x: Show stats on leaning process
 
+### Settings screen
+:x: Selecting language of app interface\
+:x: Selecting languages user wants to learn (for autotranslation)\
+
 ### General features
 
 :x: "About" screen\
 :x: Notifications (can be implemented with [this](https://github.com/DrMoriarty/godot-local-notification) plugin)\
-:x: Selecting languages user wants to learn\
 :x: Default categories and words
+
 
 ### UX/UI and visuals
 
