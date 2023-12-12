@@ -2,10 +2,11 @@
 
 #### About this project
 
-OpenCards is open source mobile app to learn natural languages, using cards system.\
+OpenCards is open source mobile app to learn natural languages, using [flashcards system](https://en.wikipedia.org/wiki/Flashcard).\
 Project is created with [Godot Engine](https://godotengine.org/) [v 3.5.2]
-
-I originally created this project to help me learn English. i didn't like any of the existing apps, so i decided to create my own :)\
+\
+\
+I originally created this project to help myself with learning English. I didn't fully satisfied any of the existing apps, so i decided to create my own :)\
 \
 Feel free to contribute to this project or make your own fork
 
@@ -58,4 +59,5 @@ Feel free to contribute to this project or make your own fork
 :x: Screen transition animations\
 :x: Tinder-like UI on learning screens\
 :x: Move from Godot default theme\
+:x: Add cyrillic font\
 :x: Theme selection
