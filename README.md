@@ -10,8 +10,8 @@ Project is created with [Godot Engine](https://godotengine.org/) [v 3.5.2]
 #### Categories
 
 :white_check_mark: Creating categories\
-:white_check_mark: Deleting categories
-:x: Editing categories\
+:white_check_mark: Deleting categories\
+:x: Editing categories
 
 #### Words
 
