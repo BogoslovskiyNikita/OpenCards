@@ -11,6 +11,7 @@ Project is created with [Godot Engine](https://godotengine.org/) [v 3.5.2]
 
 :white_check_mark: Creating categories\
 :white_check_mark: Deleting categories
+:x: Editing categories\
 
 #### Words
 
@@ -29,7 +30,7 @@ Project is created with [Godot Engine](https://godotengine.org/) [v 3.5.2]
 
 ### General features
 
-:x: "About screen"
+:x: "About screen"\
 :x: Notifications (can be implemented with [this](https://github.com/DrMoriarty/godot-local-notification) plugin)\
 :x: Selecting languages user wants to learn\
 :x: Default categories and words
