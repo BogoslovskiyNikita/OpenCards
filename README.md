@@ -1,9 +1,15 @@
 # OpenCards
 
+#### About this project
+
 OpenCards is open source mobile app to learn natural languages, using cards system.\
 Project is created with [Godot Engine](https://godotengine.org/) [v 3.5.2]\
 
 Feel free to contribute to this project or make your own fork
+
+#### Plugins / another project used
+
+[godot-sqlite](https://github.com/2shady4u/godot-sqlite)
 
 # Roadmap
 
