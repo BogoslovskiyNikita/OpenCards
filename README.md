@@ -8,7 +8,7 @@ Project is created with [Godot Engine](https://godotengine.org/) [v 3.5.2]
 \
 I originally created this project to help myself with learning English. I didn't fully satisfied any of the existing apps, so i decided to create my own :)\
 \
-Feel free to contribute to this project or make your own fork
+Feel free to contribute to this project or make your own fork!
 
 #### Plugins / another project used
 
@@ -22,7 +22,7 @@ Feel free to contribute to this project or make your own fork
 :x: Add "Buy me a coffe" button\
 :x: ~~Chill on islands~~
 
-# Checklist
+# Features checklist
 
 ### Library screen
 
@@ -43,7 +43,7 @@ Feel free to contribute to this project or make your own fork
 
 ### Learning screen
 
-:x: Geneating X words on initializing screen\
+:x: Generating X words on initializing screen\
 :x: Learning card flow. If users guessed the card, write this fact to DB\
 :x: Show stats on leaning process
 
