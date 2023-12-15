@@ -6,16 +6,20 @@ moving. If card x_offset above some threshold, card count as swiped"""
 var threshold: int
 
 var flipped = false
+var word_id: int
 
+signal word_learned(word_id)
 signal dissaperance_animation_started
 
 func init(_word_id: int):
+	word_id = _word_id
 	var word_model = DatabaseManager.get_word(_word_id)
 	$"%WordLabel".text = word_model.word
 	$"%BackWordLabel".text = word_model.word
 	$"%BackTranslationLabel".text = word_model.translation
 	$"%BackDescriptionLabel".text = word_model.description
-
+	
+	connect("word_learned", LearningManager, "on_word_learned")
 
 func _on_Panel_gui_input(event: InputEvent):
 	if event is InputEventMouseButton and event.is_pressed():
@@ -31,6 +35,7 @@ func flip():
 
 
 func _on_YesButton_pressed():
+	emit_signal("word_learned", word_id)
 	play_dissaperance_animation()
 
 
@@ -45,7 +50,6 @@ func play_dissaperance_animation():
 	$"%Tween".start()
 	
 	emit_signal("dissaperance_animation_started")
-
 
 func _on_Tween_tween_all_completed():
 	queue_free()

@@ -151,3 +151,7 @@ func get_random_words(amount: int, category_id = null):
 		var word_model = WordModel.new(record.id, record.word, record.translation, record.description)
 		result.append(word_model)
 	return result
+
+
+func increase_correct_answers_count(word_id: int):
+	_query("UPDATE words SET correct_answers_count = correct_answers_count + 1 WHERE id = %d" % word_id)
