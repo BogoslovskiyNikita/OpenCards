@@ -1,5 +1,9 @@
 extends Control
 
+const LearningCardScene = preload("res://entities/ui_elements/learning_card/learning_card.tscn")
+
+var cards = []
+
 func _ready():
 	_set_up_categories()
 
@@ -32,5 +36,22 @@ func _start_learning():
 	var category_db_id = $"%CategoriesOptionButton".get_selected_metadata()
 	if category_db_id == -1:
 		category_db_id = null
-	print(LearningManager.generate_random_words($"%WordsAmountSpinBox".value, category_db_id))
 	
+	$"%LearningParamsPanel".hide()
+	_generate_cards(LearningManager.generate_random_words($"%WordsAmountSpinBox".value, category_db_id))
+
+
+func _generate_cards(word_models: Array):
+	for word_model in word_models:
+		var new_card = LearningCardScene.instance()
+		new_card.init(word_model.id)
+		new_card.hide()
+		add_child(new_card)
+		cards.append(new_card)
+	
+	cards[0].show()
+
+	## Show every card after dissaperance of previous
+	for i in range(cards.size()):
+		if i != cards.size() - 1:
+			cards[i].connect("dissaperance_animation_started", cards[i + 1], "show")

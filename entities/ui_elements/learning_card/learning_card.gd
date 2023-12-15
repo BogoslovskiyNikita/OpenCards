@@ -7,8 +7,9 @@ var threshold: int
 
 var flipped = false
 
+signal dissaperance_animation_started
 
-func init(_word_id):
+func init(_word_id: int):
 	var word_model = DatabaseManager.get_word(_word_id)
 	$"%WordLabel".text = word_model.word
 	$"%BackWordLabel".text = word_model.word
@@ -42,6 +43,8 @@ func play_dissaperance_animation():
 	$"%Tween".interpolate_property($"%Panel", "rect_scale", rect_scale, rect_scale * 1.5, animation_duration)
 	$"%Tween".interpolate_property($"%Panel", "modulate", modulate, Color.transparent, animation_duration)
 	$"%Tween".start()
+	
+	emit_signal("dissaperance_animation_started")
 
 
 func _on_Tween_tween_all_completed():
