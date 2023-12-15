@@ -13,7 +13,7 @@ Feel free to contribute to this project or make your own fork!
 #### Plugins / another projects used
 
 * [godot-sqlite](https://github.com/2shady4u/godot-sqlite)
-* [Geist font family](https://vercel.com/font/mono)
+* [Omnibus sans serif font](https://fontlibrary.org/en/font/omnibus-sans-serif)
 
 # Roadmap
 
