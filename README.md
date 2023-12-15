@@ -39,13 +39,12 @@ Feel free to contribute to this project or make your own fork!
 :x: Autotranslate words\
 :x: Adding picture to word\
 :x: Editing words\
-:x: Autotranslate words
 
 ### Learning screen
 
 :white_check_mark: Generating X words on initializing screen\
 :white_check_mark: Learnings card flow. If users guessed the card, write this fact to DB\
-:x: Show stats on leaning process
+:white_check_mark: Show stats on leaning process
 
 ### Settings screen
 :x: Selecting language of app interface\

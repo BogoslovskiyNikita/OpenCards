@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://entities/screens/learn_screen/learn_screen.gd" type="Script" id=1]
+[ext_resource path="res://entities/ui_elements/stats_widget/stats_widget.tscn" type="PackedScene" id=2]
 [ext_resource path="res://themes/main.tres" type="Theme" id=3]
 
 [node name="LearnScreen" type="Control"]
@@ -67,6 +68,23 @@ margin_top = 151.0
 margin_right = 606.0
 margin_bottom = 198.0
 text = "Start"
+
+[node name="StatsContainer" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+anchor_right = 1.0
+margin_bottom = 169.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatsContainer"]
+margin_left = 193.0
+margin_top = 2.0
+margin_right = 527.0
+margin_bottom = 167.0
+
+[node name="LearnedStatsWidget" parent="StatsContainer/HBoxContainer" instance=ExtResource( 2 )]
+
+[node name="ToLearnStatsWidget" parent="StatsContainer/HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 169.0
+margin_right = 334.0
 
 [connection signal="item_selected" from="LearningParamsPanel/VBoxContainer/CategoriesOptionButton" to="." method="_on_CategoriesOptionButton_item_selected"]
 [connection signal="pressed" from="LearningParamsPanel/VBoxContainer/StartButton" to="." method="_start_learning"]

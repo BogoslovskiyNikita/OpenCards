@@ -38,6 +38,7 @@ func _start_learning():
 		category_db_id = null
 	
 	$"%LearningParamsPanel".hide()
+	$"%StatsContainer".hide()
 	_generate_cards(LearningManager.generate_random_words($"%WordsAmountSpinBox".value, category_db_id))
 
 
@@ -50,7 +51,7 @@ func _generate_cards(word_models: Array):
 		cards.append(new_card)
 	
 	cards[0].show()
-
+	
 	## Show every card after dissaperance of previous
 	for i in range(cards.size()):
 		if i != cards.size() - 1:
