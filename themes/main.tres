@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=3 format=2]
 
-[ext_resource path="res://fonts/raw/GeistMono-Regular.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/raw/Omnibus Sans Serif.otf" type="DynamicFontData" id=1]
 
 [sub_resource type="DynamicFont" id=1]
 size = 36

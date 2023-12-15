@@ -60,8 +60,8 @@ Feel free to contribute to this project or make your own fork!
 
 ### UX/UI and visuals
 
+:white_check_mark: Add cyrillic font\
 :x: Screen transition animations\
 :x: Tinder-like UI on learning screens\
 :x: Move from Godot default theme\
-:x: Add cyrillic font\
 :x: Theme selection
