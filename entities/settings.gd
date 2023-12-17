@@ -67,3 +67,8 @@ func cfg_structure_are_the_same() -> bool:
 	return true
 
 
+## TODO: fill body of this method
+func cfg_contains_null_value() -> bool:
+	return false
+
+
