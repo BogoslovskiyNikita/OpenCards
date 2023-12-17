@@ -7,6 +7,15 @@ var category_id: int
 
 signal word_added
 
+func _ready():
+	set_label_hints()
+
+
+func set_label_hints():
+	$"%WordLineEdit".placeholder_text += " (%s)" % Settings.get_language_to_learn()
+	$"%TranslationLineEdit".placeholder_text += " (%s)" % Settings.get_native_language()
+
+
 func open(_category_id: int, mode: int = Mode.NEW_WORD):
 	category_id = _category_id
 	show()

@@ -48,6 +48,22 @@ func _set_cfg_value(section: String, key: String, value: String):
 	config_file.save(user_config_file_path)
 
 
+func _get_cfg_value(section: String, key: String):
+	var config_file = ConfigFile.new()
+	config_file.load(user_config_file_path)
+	return config_file.get_value(section, key)
+
+
+func get_native_language():
+	return _get_cfg_value("language", "native_language")
+
+
+func get_language_to_learn():
+	return _get_cfg_value("language", "language_to_learn")
+
+
 ## TODO: fill body of this method
 func cfg_structure_are_the_same() -> bool:
 	return true
+
+
