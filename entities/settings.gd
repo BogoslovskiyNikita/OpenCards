@@ -2,13 +2,22 @@ extends Node
 
 ## TODO: var -> const
 var user_config_file_path = "user://data/settings.cfg"
+var app_launched_for_first_time = cfg_contains_null_value() or !cfg_structure_are_the_same()
+
 
 func _ready():
+	if app_launched_for_first_time:
+		process_init_default_cfg()
+
+
+## Check if we need to create new settings.cfg file
+func process_init_default_cfg():
 	if !file_exists(user_config_file_path):
 		init_default_cfg()
 	if !cfg_structure_are_the_same():
 		init_default_cfg()
-
+	if cfg_contains_null_value():
+		init_default_cfg()
 
 func file_exists(file_path: String) -> bool:
 	var file = File.new()
@@ -62,13 +71,56 @@ func get_language_to_learn():
 	return _get_cfg_value("language", "language_to_learn")
 
 
-## TODO: fill body of this method
+## Return true if user's settings.cfg file has same structure with default
+## If we update default settings, user will be asked to fill settings again.
 func cfg_structure_are_the_same() -> bool:
+	if !file_exists(user_config_file_path):
+		return true
+	
+	var config_file = ConfigFile.new()
+	config_file.load(user_config_file_path)
+	
+	var user_cfg_sections = config_file.get_sections()
+	var default_sections = ["language"]
+	
+	var user_cfg_values = Dictionary()
+	for section in user_cfg_sections:
+		user_cfg_values[section] = config_file.get_section_keys(section)
+	
+	var default_values = {
+		"language": [
+			"ui_language",
+			"native_language",
+			"language_to_learn"
+			]
+	}
+	
+	if !Utils.are_lists_equal(default_sections, user_cfg_sections):
+		return false
+	
+	## Note: "==" operator compare dict by references
+	if default_values.hash() != user_cfg_values.hash():
+		return false
+
 	return true
-
-
-## TODO: fill body of this method
+	
 func cfg_contains_null_value() -> bool:
+	if !file_exists(user_config_file_path):
+		return true
+	
+	var config_file = ConfigFile.new()
+	config_file.load(user_config_file_path)
+
+	if config_file.get_sections().empty():
+		return true
+	
+	for section in config_file.get_sections():
+		for key in config_file.get_section_keys(section):
+			var value = config_file.get_value(section, key)
+			if value == "" or value == "none" or value == "null":
+				return true
+	
 	return false
+	
 
 

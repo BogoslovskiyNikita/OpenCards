@@ -10,6 +10,8 @@ const LearningLanguages = [
 ]
 
 func _ready():
+	visible = Settings.app_launched_for_first_time
+	
 	for language_name in UILanguages:
 		$"%UILanguageOptionButton".add_item(language_name)
 	
