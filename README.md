@@ -36,7 +36,7 @@ Feel free to contribute to this project or make your own fork!
 
 :white_check_mark: Creating words (word itself, translation, description)\
 :white_check_mark: Deleting words\
-:x: Autotranslate words\
+:white_check_mark: Autotranslate words\
 :x: Adding picture to word\
 :x: Editing words
 
