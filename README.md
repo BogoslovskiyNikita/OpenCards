@@ -39,7 +39,7 @@ Feel free to contribute to this project or make your own fork!
 :white_check_mark: Creating words (word itself, translation, description)\
 :white_check_mark: Deleting words\
 :white_check_mark: Autotranslate words\
-:x: Add word description automatically\
+:x: Add word description automatically (can be implemented with https://dictionaryapi.dev/)\
 :x: Adding picture to word\
 :x: Editing words
 
