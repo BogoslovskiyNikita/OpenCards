@@ -56,6 +56,7 @@ ScreenManager="*res://entities/screen_manager.gd"
 LearningManager="*res://entities/learning_manager.gd"
 Settings="*res://entities/settings.gd"
 Translator="*res://entities/translator.gd"
+DescriptionFinder="*res://entities/description_finder.gd"
 
 [debug]
 
