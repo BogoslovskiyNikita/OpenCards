@@ -14,6 +14,8 @@ Feel free to contribute to this project or make your own fork!
 
 * [godot-sqlite](https://github.com/2shady4u/godot-sqlite)
 * [Omnibus sans serif font](https://fontlibrary.org/en/font/omnibus-sans-serif)
+* [LibreTranslate](https://github.com/LibreTranslate/LibreTranslate) ([mirror](https://translate.terraprint.co/) by https://github.com/K-Francis-H])
+* [Godot-SimpleHTTPClient](https://github.com/Abdera7mane/Godot-SimpleHTTPClient)
 
 # Roadmap
 
