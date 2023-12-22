@@ -4,6 +4,7 @@ extends Node
 var user_config_file_path = "user://data/settings.cfg"
 var app_launched_for_first_time = !file_exists(user_config_file_path) or cfg_contains_null_value() or !cfg_structure_are_the_same()
 
+signal settings_changed
 
 func _ready():
 	if app_launched_for_first_time:
@@ -52,6 +53,7 @@ func _set_cfg_value(section: String, key: String, value: String):
 	config_file.load(user_config_file_path)
 	config_file.set_value(section, key, value)
 	config_file.save(user_config_file_path)
+	emit_signal("settings_changed")
 
 
 func _get_cfg_value(section: String, key: String):

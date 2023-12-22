@@ -55,6 +55,11 @@ Utils="*res://entities/utils/utils.gd"
 ScreenManager="*res://entities/screen_manager.gd"
 LearningManager="*res://entities/learning_manager.gd"
 Settings="*res://entities/settings.gd"
+Translator="*res://entities/translator.gd"
+
+[debug]
+
+gdscript/warnings/return_value_discarded=false
 
 [display]
 
