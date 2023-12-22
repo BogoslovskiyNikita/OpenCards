@@ -17,3 +17,9 @@ func are_lists_equal(list1: Array, list2: Array) -> bool:
 	copy2.sort()
 
 	return copy1 == copy2
+
+
+# Compare the content of two dictionaries.
+# Returns true if the dictionaries have the same keys and values, false otherwise.
+func compare_dictionaries(dict1: Dictionary, dict2: Dictionary) -> bool:
+	return dict1.hash() == dict2.hash()

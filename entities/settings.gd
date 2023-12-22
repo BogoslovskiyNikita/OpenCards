@@ -2,7 +2,7 @@ extends Node
 
 ## TODO: var -> const
 var user_config_file_path = "user://data/settings.cfg"
-var app_launched_for_first_time = cfg_contains_null_value() or !cfg_structure_are_the_same()
+var app_launched_for_first_time = !file_exists(user_config_file_path) or cfg_contains_null_value() or !cfg_structure_are_the_same()
 
 
 func _ready():
@@ -12,12 +12,9 @@ func _ready():
 
 ## Check if we need to create new settings.cfg file
 func process_init_default_cfg():
-	if !file_exists(user_config_file_path):
+	if app_launched_for_first_time:
 		init_default_cfg()
-	if !cfg_structure_are_the_same():
-		init_default_cfg()
-	if cfg_contains_null_value():
-		init_default_cfg()
+
 
 func file_exists(file_path: String) -> bool:
 	var file = File.new()
@@ -88,22 +85,24 @@ func cfg_structure_are_the_same() -> bool:
 		user_cfg_values[section] = config_file.get_section_keys(section)
 	
 	var default_values = {
-		"language": [
+		"language": PoolStringArray([
 			"ui_language",
 			"native_language",
 			"language_to_learn"
-			]
+			])
 	}
 	
 	if !Utils.are_lists_equal(default_sections, user_cfg_sections):
 		return false
 	
 	## Note: "==" operator compare dict by references
-	if default_values.hash() != user_cfg_values.hash():
+	if !Utils.compare_dictionaries(default_values, user_cfg_values):
+		print('not the same')
 		return false
 
 	return true
-	
+
+
 func cfg_contains_null_value() -> bool:
 	if !file_exists(user_config_file_path):
 		return true
@@ -121,6 +120,3 @@ func cfg_contains_null_value() -> bool:
 				return true
 	
 	return false
-	
-
-
