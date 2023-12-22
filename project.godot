@@ -10,12 +10,36 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Reference",
+"class": "HTTPConnectionPool",
+"language": "GDScript",
+"path": "res://addons/Godot-SimpleHTTPClient/HTTPConnectionPool.gd"
+}, {
+"base": "Reference",
+"class": "HTTPResponse",
+"language": "GDScript",
+"path": "res://addons/Godot-SimpleHTTPClient/HTTPResponse.gd"
+}, {
+"base": "Reference",
 "class": "SQLiteWrapper",
 "language": "GDScript",
 "path": "res://addons/godot-sqlite/godot-sqlite-wrapper.gd"
+}, {
+"base": "Reference",
+"class": "SimpleHTTPClient",
+"language": "GDScript",
+"path": "res://addons/Godot-SimpleHTTPClient/SimpleHTTPClient.gd"
+}, {
+"base": "Reference",
+"class": "URL",
+"language": "GDScript",
+"path": "res://addons/Godot-SimpleHTTPClient/URL.gd"
 } ]
 _global_script_class_icons={
-"SQLiteWrapper": ""
+"HTTPConnectionPool": "",
+"HTTPResponse": "",
+"SQLiteWrapper": "",
+"SimpleHTTPClient": "",
+"URL": ""
 }
 
 [application]
