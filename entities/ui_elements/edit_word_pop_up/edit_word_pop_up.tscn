@@ -46,4 +46,10 @@ margin_right = 460.0
 margin_bottom = 122.0
 text = "Save"
 
+[node name="WordTranslationTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="text_changed" from="VBoxContainer/WordLineEdit" to="." method="_on_WordLineEdit_text_changed"]
 [connection signal="pressed" from="VBoxContainer/SaveButton" to="." method="_on_SaveButton_pressed"]
+[connection signal="timeout" from="WordTranslationTimer" to="." method="_on_WordTranslationTimer_timeout"]
