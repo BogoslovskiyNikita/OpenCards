@@ -55,6 +55,7 @@ size_flags_horizontal = 3
 text = "About"
 
 [node name="FirstTimeSettingsPanel" parent="." instance=ExtResource( 4 )]
+visible = false
 
 [connection signal="pressed" from="MainVBoxContainer/NavigationBar/LibraryButton" to="MainVBoxContainer/NavigationBar" method="_on_LibraryButton_pressed"]
 [connection signal="pressed" from="MainVBoxContainer/NavigationBar/LearnButton" to="MainVBoxContainer/NavigationBar" method="_on_LearnButton_pressed"]
