@@ -97,7 +97,6 @@ func cfg_structure_are_the_same() -> bool:
 	
 	## Note: "==" operator compare dict by references
 	if !Utils.compare_dictionaries(default_values, user_cfg_values):
-		print('not the same')
 		return false
 
 	return true
