@@ -27,15 +27,3 @@ func find_description(query: String):
 		result = result[0]["meanings"][0]["definitions"][0]["definition"]
 		if result:
 			emit_signal("description_found", result)
-	else:
-		print(url % query)
-		print(response.code)
-		print(response.body.get_string_from_utf8())
-
-func _ready():
-	connect("description_found", self, "test")
-	find_description('something')
-
-
-func test(descriptions):
-	print(descriptions)

@@ -10,11 +10,12 @@ signal word_added
 func _ready():
 	set_label_hints()
 	Translator.connect("translation_completed", $"%TranslationLineEdit", "set_text")
+	DescriptionFinder.connect("description_found", $"%DescriptionLineEdit", "set_text")
 
 
 func set_label_hints():
 	$"%WordLineEdit".placeholder_text += " (%s)" % Settings.get_language_to_learn()
-	$"%DescriptionLineEdit".placeholder_text += " (%s)" % Settings.get_language_to_learn()
+	$"%DescriptionLineEdit".text += " (%s)" % Settings.get_language_to_learn()
 	$"%TranslationLineEdit".placeholder_text += " (%s)" % Settings.get_native_language()
 
 
@@ -45,6 +46,7 @@ func _on_SaveButton_pressed():
 func _on_WordLineEdit_text_changed(new_text: String):
 	if new_text.empty():
 		$"%TranslationLineEdit".clear()
+		$"%DescriptionLineEdit".set_text("Description (%s)" % Settings.get_language_to_learn())
 		return
 	
 	$"%WordTranslationTimer".start()
@@ -56,3 +58,4 @@ func _on_WordTranslationTimer_timeout():
 		return
 	
 	Translator.translate(text_to_translate)
+	DescriptionFinder.find_description(text_to_translate)

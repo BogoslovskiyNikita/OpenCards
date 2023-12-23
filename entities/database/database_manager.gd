@@ -165,5 +165,4 @@ func count_words_to_learn() -> int:
 
 
 func count_learned_words() -> int:
-	print()
 	return get_all_words_count() - count_words_to_learn()
