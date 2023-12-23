@@ -16,6 +16,7 @@ Feel free to contribute to this project or make your own fork!
 * [Omnibus sans serif font](https://fontlibrary.org/en/font/omnibus-sans-serif)
 * [LibreTranslate](https://github.com/LibreTranslate/LibreTranslate) ([mirror](https://translate.terraprint.co/) by https://github.com/K-Francis-H])
 * [Godot-SimpleHTTPClient](https://github.com/Abdera7mane/Godot-SimpleHTTPClient)
+* [freeDictionaryAPI](https://github.com/meetDeveloper/freeDictionaryAPI)
 
 # Roadmap
 
@@ -39,7 +40,7 @@ Feel free to contribute to this project or make your own fork!
 :white_check_mark: Creating words (word itself, translation, description)\
 :white_check_mark: Deleting words\
 :white_check_mark: Autotranslate words\
-:x: Add word description automatically (can be implemented with https://dictionaryapi.dev/) \
+:white_check_mark: Add word description automatically \
 :x: Adding picture to word\
 :x: Editing words
 
