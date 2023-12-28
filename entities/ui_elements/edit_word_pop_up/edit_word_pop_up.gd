@@ -27,7 +27,7 @@ func open(_category_id: int, mode: int = Mode.NEW_WORD):
 func close():
 	$"%WordLineEdit".clear()
 	$"%TranslationLineEdit".clear()
-	$"%DescriptionLineEdit".clear()
+	$"%DescriptionLineEdit".set_text("")
 	hide()
 
 

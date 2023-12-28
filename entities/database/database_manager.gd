@@ -158,11 +158,19 @@ func increase_correct_answers_count(word_id: int):
 
 
 func count_words_to_learn() -> int:
-	_query("SELECT value FROM constants WHERE name = 'correct_answers_to_learn'")
-	var correct_answers_to_learn = _db.query_result[0].value
+	var correct_answers_to_learn = get_constant('correct_answers_to_learn')
 	_query("SELECT COUNT(*) FROM words WHERE correct_answers_count >= %d" % correct_answers_to_learn)
 	return _db.query_result[0].get('COUNT(*)')
 
 
 func count_learned_words() -> int:
 	return get_all_words_count() - count_words_to_learn()
+
+
+func get_constant(constant_name: String):
+	_query("SELECT value FROM constants WHERE name = '%s'" % constant_name)
+	var constant = _db.query_result[0].value
+	if constant:
+		return constant
+	else:
+		push_error("Constant %s not found" % constant_name)
