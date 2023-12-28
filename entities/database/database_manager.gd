@@ -140,10 +140,11 @@ func update_correct_answers_count(word_id: int):
 
 
 func get_random_words(amount: int, category_id = null):
+	var correct_answers_to_learn = get_constant('correct_answers_to_learn')
 	if category_id:
-		_query("SELECT * FROM words WHERE category = %d ORDER BY RANDOM() LIMIT %d" % [category_id, amount])
+		_query("SELECT * FROM words WHERE category = %d AND correct_answers_count < %d ORDER BY RANDOM() LIMIT %d" % [category_id, correct_answers_to_learn,amount])
 	else:
-		_query("SELECT * FROM words ORDER BY RANDOM() LIMIT %d" % amount)
+		_query("SELECT * FROM words WHERE correct_answers_count < %d ORDER BY RANDOM() LIMIT %d" % [correct_answers_to_learn, amount])
 	
 	var result = Array()
 	
@@ -157,9 +158,12 @@ func increase_correct_answers_count(word_id: int):
 	_query("UPDATE words SET correct_answers_count = correct_answers_count + 1 WHERE id = %d" % word_id)
 
 
-func count_words_to_learn() -> int:
+func count_words_to_learn(category_id = null) -> int:
 	var correct_answers_to_learn = get_constant('correct_answers_to_learn')
-	_query("SELECT COUNT(*) FROM words WHERE correct_answers_count >= %d" % correct_answers_to_learn)
+	if category_id:
+		_query("SELECT COUNT(*) FROM words WHERE correct_answers_count < %d AND category = %d" % [correct_answers_to_learn, category_id])
+	else:
+		_query("SELECT COUNT(*) FROM words WHERE correct_answers_count < %d" % correct_answers_to_learn)
 	return _db.query_result[0].get('COUNT(*)')
 
 

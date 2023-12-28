@@ -24,9 +24,9 @@ func _on_CategoriesOptionButton_item_selected(index):
 	var item_db_id = $"%CategoriesOptionButton".get_selected_metadata()
 	$"%WordsAmountSpinBox".allow_greater = true
 	if item_db_id == -1:
-		$"%WordsAmountSpinBox".value = DatabaseManager.get_all_words_count()
+		$"%WordsAmountSpinBox".value = DatabaseManager.count_words_to_learn()
 	else:
-		$"%WordsAmountSpinBox".value = DatabaseManager.get_words_count(item_db_id)
+		$"%WordsAmountSpinBox".value = DatabaseManager.count_words_to_learn(item_db_id)
 	$"%WordsAmountSpinBox".allow_greater = false
 	$"%WordsAmountSpinBox".max_value = $"%WordsAmountSpinBox".value
 
