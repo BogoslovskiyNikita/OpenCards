@@ -17,7 +17,9 @@ func init(_word_id: int):
 	$"%WordLabel".text = word_model.word
 	$"%BackWordLabel".text = word_model.word
 	$"%BackTranslationLabel".text = word_model.translation
-	$"%BackDescriptionLabel".text = word_model.description
+	$"%BackDescriptionLabel".bbcode_text = ""
+	$"%BackDescriptionLabel".bbcode_enabled = true 
+	$"%BackDescriptionLabel".append_bbcode("[center]%s[/center]" % word_model.description)
 	
 	connect("word_learned", LearningManager, "on_word_learned")
 

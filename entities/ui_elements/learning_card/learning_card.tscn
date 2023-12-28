@@ -125,18 +125,20 @@ margin_bottom = 86.0
 text = "TranslationBack"
 align = 1
 
-[node name="BackDescriptionLabel" type="Label" parent="Panel/BackVBoxContainer"]
+[node name="BackDescriptionLabel" type="RichTextLabel" parent="Panel/BackVBoxContainer"]
 unique_name_in_owner = true
 margin_top = 90.0
 margin_right = 388.0
-margin_bottom = 131.0
-text = "DecriptionBack"
-align = 1
+margin_bottom = 290.0
+rect_min_size = Vector2( 0, 200 )
+bbcode_enabled = true
+bbcode_text = "[center]SomeText[/center]"
+text = "SomeText"
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel/BackVBoxContainer"]
-margin_top = 135.0
+margin_top = 294.0
 margin_right = 388.0
-margin_bottom = 185.0
+margin_bottom = 344.0
 
 [node name="ButtonsHBoxContainer" type="HBoxContainer" parent="Panel/BackVBoxContainer/CenterContainer"]
 margin_left = 17.0
