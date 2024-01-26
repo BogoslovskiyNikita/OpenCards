@@ -4,15 +4,22 @@
 [ext_resource path="res://themes/main.tres" type="Theme" id=2]
 
 [node name="EditWordPopUp" type="Panel"]
-margin_right = 460.0
-margin_bottom = 157.0
+margin_top = 21.0
+margin_right = 476.0
+margin_bottom = 445.0
+rect_min_size = Vector2( 480, 430 )
 theme = ExtResource( 2 )
 script = ExtResource( 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_top = 27.0
-margin_right = 460.0
-margin_bottom = 123.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -230.0
+margin_top = -199.0
+margin_right = 230.0
+margin_bottom = 199.0
 
 [node name="WordEditLabel" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
@@ -25,30 +32,30 @@ align = 1
 unique_name_in_owner = true
 margin_top = 45.0
 margin_right = 460.0
-margin_bottom = 96.0
+margin_bottom = 92.0
 placeholder_text = "Word"
 
 [node name="TranslationLineEdit" type="LineEdit" parent="VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 100.0
+margin_top = 96.0
 margin_right = 460.0
-margin_bottom = 151.0
+margin_bottom = 143.0
 placeholder_text = "Translation"
 
 [node name="DescriptionLineEdit" type="TextEdit" parent="VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 155.0
+margin_top = 147.0
 margin_right = 460.0
-margin_bottom = 355.0
+margin_bottom = 347.0
 rect_min_size = Vector2( 0, 200 )
 size_flags_vertical = 3
 text = "Description"
 smooth_scrolling = true
 
 [node name="SaveButton" type="Button" parent="VBoxContainer"]
-margin_top = 359.0
+margin_top = 351.0
 margin_right = 460.0
-margin_bottom = 406.0
+margin_bottom = 398.0
 text = "Save"
 
 [node name="WordTranslationTimer" type="Timer" parent="."]
