@@ -25,6 +25,7 @@ margin_bottom = 199.0
 unique_name_in_owner = true
 margin_right = 460.0
 margin_bottom = 41.0
+theme = ExtResource( 2 )
 text = "Edit Word"
 align = 1
 
