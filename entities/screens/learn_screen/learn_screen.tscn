@@ -32,13 +32,13 @@ margin_bottom = 101.0
 
 [node name="LearningParamsLabel" type="Label" parent="LearningParamsPanel/VBoxContainer"]
 margin_right = 606.0
-margin_bottom = 41.0
+margin_bottom = 44.0
 text = "Learning params"
 align = 1
 
 [node name="CategoriesOptionButton" type="OptionButton" parent="LearningParamsPanel/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 45.0
+margin_top = 48.0
 margin_right = 606.0
 margin_bottom = 92.0
 text = "Category"
@@ -46,27 +46,27 @@ text = "Category"
 [node name="HBoxContainer" type="HBoxContainer" parent="LearningParamsPanel/VBoxContainer"]
 margin_top = 96.0
 margin_right = 606.0
-margin_bottom = 147.0
+margin_bottom = 143.0
 
 [node name="WordsAmountLabel" type="Label" parent="LearningParamsPanel/VBoxContainer/HBoxContainer"]
-margin_top = 5.0
-margin_right = 274.0
-margin_bottom = 46.0
+margin_top = 1.0
+margin_right = 256.0
+margin_bottom = 45.0
 text = "Words amount:"
 
 [node name="WordsAmountSpinBox" type="SpinBox" parent="LearningParamsPanel/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-margin_left = 278.0
+margin_left = 260.0
 margin_right = 460.0
-margin_bottom = 51.0
-rect_min_size = Vector2( 40, 0 )
+margin_bottom = 47.0
+rect_min_size = Vector2( 200, 0 )
 allow_greater = true
 align = 1
 
 [node name="StartButton" type="Button" parent="LearningParamsPanel/VBoxContainer"]
-margin_top = 151.0
+margin_top = 147.0
 margin_right = 606.0
-margin_bottom = 198.0
+margin_bottom = 191.0
 text = "Start"
 
 [node name="StatsContainer" type="CenterContainer" parent="."]
