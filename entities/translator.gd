@@ -16,8 +16,8 @@ signal translation_completed(translation)
 
 
 func get_language_settings():
-	source_language = LanguageCodes[Settings.get_language_to_learn()]
-	target_language = LanguageCodes[Settings.get_native_language()]
+	source_language = LanguageCodes.get(Settings.get_language_to_learn(),"en")
+	target_language = LanguageCodes.get(Settings.get_native_language(), "en")
 
 
 func _ready():
