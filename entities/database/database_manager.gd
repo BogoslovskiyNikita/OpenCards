@@ -1,8 +1,8 @@
 extends Node
 
 const _SQLite = preload("res://addons/godot-sqlite/bin/gdsqlite.gdns")
-const _OriginalDatabasePath = "res://entities/database/database.db"
-const _DatabasePath = "user://data/database.db"
+const _TemplateDatabasePath = "res://entities/database/database_template.db"
+const _UserDatabasePath = "user://data/database.db"
 
 var _db: _SQLite
 var _copy_db = false # DEBUG ONLY
@@ -42,18 +42,36 @@ class WordModel:
 func _ready():
 	_copy_db_to_user_folder()
 	_db = _SQLite.new()
-	_db.path = _DatabasePath
+	_db.path = _UserDatabasePath
+	copy_db_if_needed()
+	
 
-
-## TODO: Add checking if db exists and structure is the same
 ## TODO: Refactor
 func _copy_db_to_user_folder():
 	var data_folder_path = "user://data"
 	if not Directory.new().dir_exists(data_folder_path):
 		Directory.new().make_dir(data_folder_path)
 	if _copy_db:
-		Directory.new().copy(_OriginalDatabasePath, _DatabasePath)
+		Directory.new().copy(_TemplateDatabasePath, _UserDatabasePath)
 
+
+## TODO: not copying and earsing, but megrating
+
+## Casese when we need to copy db:
+## - DB version of app is newer
+## - User's DB not exists
+func copy_db_if_needed():
+	var copying_is_required = false 
+	#var app_db_version = get_constant('database_version')
+	var user_db_version = 1
+	
+	# if not Utils.file_exists():
+	# add "DatabaseVersion" field?
+	
+	if copying_is_required:
+		_copy_db_to_user_folder()
+	
+	_copy_db_to_user_folder()
 
 ## TODO: add possibility to instantly return query result
 func _query(query_string: String):
@@ -178,3 +196,14 @@ func get_constant(constant_name: String):
 		return constant
 	else:
 		push_error("Constant %s not found" % constant_name)
+
+
+func get_database_version(db_path: String):
+	_query("SELECT value FROM constants WHERE name = database_version")
+	var db = _SQLite.new()
+	db.path = db_path
+	var version = db.query_result[0].value
+	if version:
+		return version
+	else:
+		push_error("Database version for db %s not found" % db_path)
