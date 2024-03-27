@@ -1,10 +1,11 @@
 extends Node
 
 const _SQLite = preload("res://addons/godot-sqlite/bin/gdsqlite.gdns")
-const _TemplateDatabasePath = "res://entities/database/database_template.db"
+const _TemplateDatabasePath = "res://entities/database/template_database.db"
 const _UserDatabasePath = "user://data/database.db"
 
 var _db: _SQLite
+# TODO: remove it
 var _copy_db = false # DEBUG ONLY
 
 signal category_added
@@ -62,14 +63,14 @@ func _copy_db_to_user_folder():
 ## - User's DB not exists
 func copy_db_if_needed():
 	var copying_is_required = false 
-	#var app_db_version = get_constant('database_version')
-	var user_db_version = 1
 	
-	# if not Utils.file_exists():
+	if not Utils.file_exists(_UserDatabasePath):
+		return
+	var app_db_version = get_database_version(_TemplateDatabasePath)
+	var user_db_version = get_database_version(_UserDatabasePath)
+	print(app_db_version, user_db_version)
 	# add "DatabaseVersion" field?
 	
-	if copying_is_required:
-		_copy_db_to_user_folder()
 	
 	_copy_db_to_user_folder()
 
@@ -199,9 +200,13 @@ func get_constant(constant_name: String):
 
 
 func get_database_version(db_path: String):
-	_query("SELECT value FROM constants WHERE name = database_version")
 	var db = _SQLite.new()
 	db.path = db_path
+	db.open_db()
+	db.query("SELECT value FROM constants WHERE name = 'database_version'")
+	db.close_db()
+	print(ProjectSettings.globalize_path(db.path), db.query_result)
+	print(Utils.file_exists(db.path))
 	var version = db.query_result[0].value
 	if version:
 		return version
