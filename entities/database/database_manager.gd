@@ -6,7 +6,6 @@ const _UserDatabasePath = "user://data/database.db"
 
 var _db: _SQLite
 # TODO: remove it
-var _copy_db = false # DEBUG ONLY
 
 signal category_added
 signal category_deleted
@@ -41,38 +40,35 @@ class WordModel:
 
 
 func _ready():
-	_copy_db_to_user_folder()
+	print(1)
+	copy_db_if_needed()
 	_db = _SQLite.new()
 	_db.path = _UserDatabasePath
-	copy_db_if_needed()
-	
-
-## TODO: Refactor
-func _copy_db_to_user_folder():
-	var data_folder_path = "user://data"
-	if not Directory.new().dir_exists(data_folder_path):
-		Directory.new().make_dir(data_folder_path)
-	if _copy_db:
-		Directory.new().copy(_TemplateDatabasePath, _UserDatabasePath)
 
 
 ## TODO: not copying and earsing, but megrating
-
 ## Casese when we need to copy db:
-## - DB version of app is newer
 ## - User's DB not exists
+## - App's DB version is newer
 func copy_db_if_needed():
-	var copying_is_required = false 
-	
+	print(2)
 	if not Utils.file_exists(_UserDatabasePath):
-		return
+		_copy_db_to_user_folder()
 	var app_db_version = get_database_version(_TemplateDatabasePath)
 	var user_db_version = get_database_version(_UserDatabasePath)
-	print(app_db_version, user_db_version)
+	print('compare versions:', app_db_version > user_db_version)
 	# add "DatabaseVersion" field?
-	
-	
-	_copy_db_to_user_folder()
+	print(3)
+
+
+## TODO: Refactor
+func _copy_db_to_user_folder():
+	print(4)
+	var data_folder_path = "user://data"
+	if not Directory.new().dir_exists(data_folder_path):
+		Directory.new().make_dir(data_folder_path)
+	Directory.new().copy(_TemplateDatabasePath, _UserDatabasePath)
+	print(5.2)
 
 ## TODO: add possibility to instantly return query result
 func _query(query_string: String):
@@ -87,7 +83,7 @@ func add_category(category_name: String):
 
 
 func get_all_categories():
-	_query("SELECT * FROM CATEGORIES")
+	_query("SELECT * FROM categories")
 	var categories_from_db = _db.query_result
 	var result = Array()
 	for category in categories_from_db: ## TODO: refactor
